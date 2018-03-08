@@ -1,0 +1,15 @@
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+country=US
+
+network={
+	ssid="SR Wireless (2.4 GHz)"
+	psk="LedZeppelin"
+	key_mgmt=WPA-PSK
+}
+
+network={
+	ssid="SR Wireless Test"
+	psk="Password"
+	key_mgmt=WPA-PSK
+}
