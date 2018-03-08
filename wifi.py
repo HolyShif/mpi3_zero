@@ -1,5 +1,7 @@
 #Kyle Shiflett
-#Scans for available wifi, and returns the list of SSIDs
+#file for scanning, adding, removing, and changing wifi networks in the wpa_supplicant.conf file
+#assumes WPA or WPA2
+
 import subprocess
 def scan():
 	p1 = subprocess.Popen(["iwlist","wlan0","scan"],stdout=subprocess.PIPE)
@@ -75,3 +77,23 @@ def remove(ssid):
 	wpa_f.truncate()
 	wpa_f.close()
 	return 1	#return success
+
+def add(ssid, password):
+	try:
+                wpa_f = open('/home/pi/mpi3_zero/wpa_tst.conf', 'a+')
+        except:
+                return -1
+
+	data = wpa_f.read()
+	target = '\tssid=\"' + ssid + '\"\n'
+	
+	if target in data:        #ssid already in file, nothing to add
+                return 0
+
+	netw = ('\nnetwork={\n' + target + '\tpks=\"' + password + '\"\n' + 
+		'\tkey_mgmt=WPA-PSK\n}\n')
+
+	#print netw
+	wpa_f.write(netw)
+	wpa_f.close()
+	return 1
