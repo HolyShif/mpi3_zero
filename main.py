@@ -218,35 +218,6 @@ def main():
 	select_alb = 0
 	select_s = 0
 
-	#artists = get_artists()
-	#select_art = disp_list(artists)
-
-	#while True:
-		#artists = get_artists()
-		#print artists
-		#select_art = disp_list(artists)
-		#if select_art == -99:
-			#pass
-		#else:
-			#albums = get_albums(artists[select_art])		
-			#select_alb = disp_list(albums)
-			#if select_alb == -99:
-				#pass
-			#else:
-				#songs = get_songs(artists[select_art],albums[select_alb])
-				#print songs
-				#songs_trim = [s[3:-4] for s in songs]
-				#print songs_trim
-				#print songs
-	
-				#select_s = disp_list(songs_trim)
-				#print songs[select_s]
-				#if select_s == -99:
-					#pass
-				#else:	
-					#play the song
-					#disp_np(artists[select_art],albums[select_alb],songs_trim[select_s],art)
-
 	artists = get_artists()
         select_art = disp_list(artists)
 	while select_art != -99:
